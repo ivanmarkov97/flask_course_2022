@@ -6,7 +6,7 @@
 </head>
 <body>
     {% for student in students %}
-    <p>Student: {{ student.first_name }} {{ student.last_name }}</p>
+    <p>Student: {{ student['first_name'] }} {{ student['last_name'] }}</p>
     {% endfor %}
 </body>
 </html>

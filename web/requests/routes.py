@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template
 
-from .adapters import StudentsInGroupScenarioAdapter
+from .scenarios import StudentsInGroupScenario
 
 
 requests_app = Blueprint('requests_app', __name__, template_folder='templates')
@@ -14,5 +14,5 @@ def students_in_group():
 		group = request.form.get('group', None)
 		if group is None:
 			return 'Group attribute required'
-		students = StudentsInGroupScenarioAdapter(group=group).execute()
+		students = StudentsInGroupScenario(group=group).execute()
 		return render_template('students_in_group_result.html', students=students)
